@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleMenuBlocks.css">
+    <link rel="stylesheet" href="Comfortaa-VariableFont_wght.ttf">
+    <link rel="stylesheet" href="FontAwesome.otf">
+    <title>Main page</title>
+</head>
+<body class="body">
+    <div class="slideRight" class="slideLeft" id="anim"  onclick="clickMeBack()">
+        <div class="slide_block">
+            <p class="slide_block-date" id="dateOnSlide"></p>
+            <p class="slide_block-name" id="nameOnSlide"></p>
+            <a class="slide_block-symbol transform" id="rename" title="Сбросить имя" onclick="clickToRename()">&#8634;</a>
+        </div>
+    </div>
+
+    <div class="body_block1" id="body_block1">
+        <div class="body_block1_logoX">
+            <img src="logoX.png" alt="" class="body_block1_logoX-img" id="logoX" onclick="clickToClose()">
+        </div>
+        <div class="body_block1_mainBlock" id="body_mainBlock1">
+            <div class="body_block1_mainBlock-action">
+                <p>Расчет площади треугольника по <br> высоте и основанию.</p>
+                <div class="body_block1_mainBlock-action-text" id="theSolutionSquare"></div>
+                <input type="text" autofocus placeholder="Введите основание" id="base">
+                <input type="text" placeholder="Введите высоту" id="height">
+                <button onclick="clickToSolveTheSquare()">Рассчитать</button>
+            </div>
+            <div class="body_block1_mainBlock-descr">
+                <p>Для решения данной задачи необходимо создать две переменные (переменная - именованный адрес в памяти, 
+                    который можно использовать для осуществления доступа к данным): одну для высоты треугольника,
+                     другую для основания. Используя специальную команду document.getElementById мы получаем 
+                     значения текстовых полей по их id. Затем используя условный оператор if - else, который 
+                     выполняет что-либо по условию, выполняем проверку на корректность данных и в случае их 
+                     корректности мы вычисляем площадь и показываем на экране.</p>
+            </div>
+        </div>
+
+        <div class="body_block1_mainBlock" id="body_mainBlock2">
+            <div class="body_block1_mainBlock-action">
+                <p>Сравнение строк по количеству символов.</p>
+                <div class="body_block1_mainBlock-action-text" id="theSolutionStr"></div>
+                <input type="text" autofocus placeholder="Введите строку" id="str1">
+                <input type="text" placeholder="Введите строку" id="str2">
+                <button onclick="clickToCompareStr()">Рассчитать</button>
+            </div>
+            <div class="body_block1_mainBlock-descr">
+                <p>Для решения данной задачи необходимо создать две переменные : одну для первой строки,
+                     другую для второй. Затем получаем 
+                     значения текстовых полей по их id. Затем используя условный оператор if - else
+                     сравниваем строки по их длинам, если они одинаковы - выводим true, в ином случае - false.</p>
+            </div>
+        </div>
+
+        <div class="body_block1_mainBlock" id="body_mainBlock3">
+            <div class="body_block1_mainBlock-action">
+                <p>Поиск максимального и минимального <br> значений в массиве.</p>
+                <div class="body_block1_mainBlock-action-text" id="theSolutionArr"></div>
+                <input type="text" autofocus placeholder="Введите число" id="arr1">
+                <input type="text" placeholder="Введите число" id="arr2">
+                <input type="text" placeholder="Введите число" id="arr3">
+                <input type="text" placeholder="Введите число" id="arr4">
+                <input type="text" placeholder="Введите число" id="arr5">
+                <button onclick="clickToSolveTheArr()">Рассчитать</button>
+            </div>
+            <div class="body_block3_mainBlock-descr">
+                <p>Для решения данной задачи необходимо создать 5 переменных : по одной для каждого из 5 чисел. Затем получаем 
+                     значения текстовых полей по их id. Затем используя условный оператор if - else, который 
+                     выполняет что-либо по условию, выполняем проверку на корректность данных и в случае их 
+                     корректности создаем массив (это структура данных, хранящая набор значений, идентифицируемых 
+                     по индексу или набору индексов), куда сохраняем все пять переменных. Затем создадим 2 переменные: одна для
+                     максимального числа, другая - для минимального. После, используя цикл (Цикл — это та часть кода программы, которая 
+                     выполняется заданное количество раз), проходим по массиву и с помощью условного оператора if-else если число больше нашего максимального,
+                    то перезаписываем его, также и в случае с минимальным. После цикла выводим на экран. </p>
+            </div>
+        </div>
+
+        <div class="body_block1_mainBlock" id="body_mainBlock4">
+            <div class="body_block1_mainBlock-action">
+                <p>Таймер</p>
+                <div class="body_block4_mainBlock-action-text" id="timer">
+                    <div class="mainBlock4-action-text-block1">
+                        <p id="pastTime"></p>
+                    </div>
+                    <div class="mainBlock-action-text-block2">
+                        <div class="mainBlock-action-text-block2-subblock">
+                            <button class="text-block2-subblock-button" id="buttonUpMin" onclick="ChangeMin(5)">&#9650;</button>
+                            <input type="number" value="00" id="textMin" max="59" min="0">
+                            <button class="text-block2-subblock-button" id="buttonDownMin" onclick="ChangeMin(-5)">&#9660;</button>
+                        </div>
+                        <div class="mainBlock-action-text-block2-subblock">:</div>
+                        <div class="mainBlock-action-text-block2-subblock">
+                            <button class="text-block2-subblock-button" id="buttonUpSec" onclick="ChangeSec(5)">&#9650;</button>
+                            <input type="number" value="00" id="textSec" max="59" min="0">
+                            <button class="text-block2-subblock-button" id="buttonDownSec" onclick="ChangeSec(-5)">&#9660;</button>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="clickToStartTimer()" id="buttonToStartTimer">Начать отсчет</button>
+                <button onclick="clickToStopTimer()">Остановить</button>
+                <button onclick="clickToSolveTheTime()">Рассчитать время</button>
+            </div>
+            <div class="body_block3_mainBlock-descr">
+                <p>Для решения данной задачи не вдаваясь в технические подробности по самой работе таймера,
+                     необходимо разработать несколько функций, каждая из которых будет выполнять свою задачу 
+                     (функция - фрагмент программного кода, к которому можно обратиться из другого места программы. 
+                     Образно говоря, это зараенее заготовленная программа, которую мы затем можем использовать в 
+                     основной программе). Создаем 3 основных функции: для запуска таймера, для его остановки и функцию 
+                     для просчета времени, которое прошло от запуска таймера до его остановки. Каждую из этих функций 
+                     запускаем по нажатаию на соответствующие кнопки.</p>
+            </div>
+        </div>
+
+        <div class="body_block5_mainBlock" id="body_mainBlock5">
+            <div class="body_block5_mainBlock-action">
+                <p>Тест</p>
+            </div>
+            <div class="body_block5_mainBlock-action-text" id="questionTestBlock">
+                <p id="questionNumber"></p>
+                <p id="questionText"></p>
+                <div class="body_block5_mainBlock-action-text-answer"><input type="radio" name="answer" value="answ1" id="inputValue1"> <p id="answ1"></p></div>
+                <div class="body_block5_mainBlock-action-text-answer"><input type="radio" name="answer" value="answ2" id="inputValue2"> <p id="answ2"></p></div>
+                <div class="body_block5_mainBlock-action-text-answer"><input type="radio" name="answer" value="answ3" id="inputValue3"> <p id="answ3"></p></div>
+            </div>
+
+            <div id="questionBlockResult">
+                <p class="questionBlockResult-title">Ваши ответы:</p>
+                <div class="questionBlockResult-question" id="blockResult">
+                    <!-- <p>#1 - Наполовину - неверно</p> -->
+                    
+                </div>
+                <div class="questionBlockResult-result">
+                    <p id="blockResultTitle">Ваш результат: 6/10 - Старайтесь еще!</p>
+                </div>
+            </div>
+
+            <div class="body_block5_mainBlock-descr">
+                <button id="clickToPrevQuestion" onclick="clickToPrevQuestion()">Предыдущий</button>
+                <button id="clickToRestartTest" onclick="clickToRestartTest()">Заново</button>
+                <button id="clickToNextQuestion" onclick="clickToNextQuestion()">Следующий</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="header" class="bodyNoAccess" id="noAccess">
+        <div class="header_menu">
+            <a href="" class="double-border-button" onclick="clickToOpenBlock1()">Площадь треугольника</a>
+            <a href="" class="double-border-button"onclick="clickToOpenBlock2()">Сравнение строк</a>
+            <a href="" class="double-border-button"onclick="clickToOpenBlock3()">Массив значений</a>
+            <a href="" class="double-border-button"onclick="clickToOpenBlock4()">Таймер</a>
+            <a href="" class="double-border-button"onclick="clickToOpenBlock5()">Тест</a>
+            <a href="" class="double-border-button" onclick="clickMe()">Заставка</a>
+        </div>
+        <div class="header_name">
+            <p class="header_name-text1">Привет, </p>
+            <p class="header_name-text2" id="name"></p>
+        </div>
+    </div>
+
+    <div class="body_main">
+        <div class="body_main_block1">
+            <div class="body_main_block1-text"><p>JavaScript</p></div>
+            <img src="logo.png" alt="" class="body_main_block1-img">
+        </div>
+
+        <div class="body_main_block2">
+            <p>Многие люди, даже не имеющие никакого отношения к IT-сфере, 
+                слышали слово Java. Революционный независимый от платформ язык, 
+                на котором активно пишут приложения для мобильных систем. 
+                Он был разработан перспективной компанией Sun, которая затем перешла «под крыло» Oracle.
+                 Но ни та, ни другая компании не имеют никакого отношения к JavaScript.</p>
+        </div>
+
+        <div class="body_main_block3">
+            <p>От Sun потребовалось лишь разрешение на использование части названия. 
+                Удивительно, но JavaScript вообще не принадлежит ни одной фирме.</p>
+        </div>
+
+        <div class="body_main_block4">
+            <p>Сфера применения</p>
+        </div>
+
+        <div class="body_main_block5">
+            <img src="logo2.png" alt="" class="body_main_block5-img">
+
+            <ul class="body_main_block5-list">
+                <li>Разработка веб-приложений </li>
+                <li>«Активное участие» в AJAX. Эта технология позволила значительно 
+                    ускорить работу приложений, осуществляя обмен данными с сервером в «фоновом» режиме</li>
+                <li>Операционные системы. Возможно, кто-то не знал, но Windows, Linux и Mac имеют своих браузерных
+                     конкурентов, львиная доля кода которых написана на JavaScript</li>
+                <li>Мобильные приложения;</li>
+                <li>Сфера обучения. Любая программистская специальность в университете включает в себя изучение JavaScript в том или ином объеме</li>
+            </ul>
+        </div>
+
+        <div class="body_main_block6">
+            <p>Преимущества</p>
+        </div>
+
+        <div class="body_main_block7">
+
+            <ul class="body_main_block7-list">
+                <li>JavaScript предоставляет большое количество возможностей для решения самых разнообразных задач. 
+                    Гибкость языка позволяет использовать множество шаблонов программирования применительно к конкретным условиям.
+                     Изобретательный ум получит настоящее удовольствие</li>
+                <li>Популярность JavaScript открывает перед программистом немалое количество готовых библиотек, 
+                    которые позволяют значительно упростить написание кода и нивелировать несовершенства синтаксиса</li>
+                <li>Применение во многих областях. Широкие возможности JavaScript дают программистам шанс попробовать 
+                    себя в качестве разработчика самых разнообразных приложений, а это, безусловно, подогревает интерес 
+                    к профессиональной деятельности</li>   
+            </ul>
+
+            <img src="logo3.png" alt="" class="body_main_block7-img">
+
+        </div>
+
+        <div class="body_main_block8">
+            <p>Недостатки</p>
+        </div>
+
+        <div class="body_main_block9">
+
+            <ul class="body_main_block9-list">
+                <li>Необходимость обеспечивать кроссбраузерность</li>
+                <li>Система наследования в языке вызывает трудности в понимании происходящего</li>
+                <li>Отсутствует стандартная библиотека. JavaScript не предоставляет никаких возможностей 
+                для работы с файлами, потоками ввода-вывода и прочими полезными вещами</li>   
+                <li>Синтаксис в целом затрудняет понимание. Красота кода – явно не конёк JavaScript,
+                     но главное правило программистов соблюдено: «Работает? Не трожь!».</li>   
+            </ul>
+        </div>
+
+        <div class="body_main_block10">
+            <p>Итог</p>
+        </div>
+
+        <div class="body_main_block11">
+            <p>Таким образом, можно утверждать, что JavaScript получил широкое распространение
+                 в сфере веб-программирования, вобрав в себя возможности объектно-ориентированных и 
+                 функциональных языков. Несмотря на несколько неудобный синтаксис, JavaScript активно
+                  применяется в учебных программах.</p>
+        </div>
+
+        <div class="body_main_block12">
+            <p>Для новичков важно помнить, что язык – это всего лишь инструмент, а
+                 главное в программировании – мысль.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer__block__elem1">
+            <p class="footer__block-text">Copyright</p>
+            <span class="footer__block-symbol">&#169;</span>
+            <p class="footer__block-text">2021</p>
+        </div>
+        <a href="https://www.internet-technologies.ru/articles/yazyk-programmirovaniya-javascript-informaciya-dlya-nachinayuschih.html" class="double-border-button" target="_blank">Информация о JS взята здесь </a>
+    </div>
+
+    <script src="scipts.js"></script>
+    <script src="questions.js"></script>
+</body>
+</html>
